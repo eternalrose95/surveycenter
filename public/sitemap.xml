@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <sitemap>
+  <loc>https://surveycenter.co.id/sitemap-artikel.xml</loc>
+  <lastmod>2026-07-05T02:00:11+00:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://surveycenter.co.id/sitemap-halaman.xml</loc>
+  <lastmod>2026-07-05T02:00:11+00:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://surveycenter.co.id/sitemap-kategori.xml</loc>
+  <lastmod>2026-07-05T02:00:11+00:00</lastmod>
+ </sitemap>
+</sitemapindex>
