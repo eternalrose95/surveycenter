@@ -25,9 +25,15 @@ class TransactionController extends Controller
 
     public function create()
     {
-        $surveys = Survey::all();
-        $users = User::all();
-        return view('admin.transactions.create', compact('surveys', 'users'));
+        try {
+            $surveys = Survey::all();
+            $users = User::all();
+            \Log::info('Create page accessed', ['surveys' => $surveys->count(), 'users' => $users->count()]);
+            return view('admin.transactions.create', compact('surveys', 'users'));
+        } catch (\Exception $e) {
+            \Log::error('Create page error: ' . $e->getMessage());
+            throw $e;
+        }
     }
 
     public function store(Request $request)
