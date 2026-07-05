@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TransactionController extends Controller
 {
@@ -28,10 +29,10 @@ class TransactionController extends Controller
         try {
             $surveys = Survey::all();
             $users = User::all();
-            \Log::info('Create page accessed', ['surveys' => $surveys->count(), 'users' => $users->count()]);
+            Log::info('Create page accessed', ['surveys' => $surveys->count(), 'users' => $users->count()]);
             return view('admin.transactions.create', compact('surveys', 'users'));
         } catch (\Exception $e) {
-            \Log::error('Create page error: ' . $e->getMessage());
+            Log::error('Create page error: ' . $e->getMessage());
             throw $e;
         }
     }
