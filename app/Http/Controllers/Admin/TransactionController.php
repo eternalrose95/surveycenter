@@ -82,8 +82,8 @@ class TransactionController extends Controller
 
     public function edit(Transaction $transaction)
     {
-        $surveys = Survey::all();
-        $users = User::all();
+        $surveys = Survey::select(['id', 'user_id', 'title'])->orderBy('title')->get();
+        $users = User::select(['id', 'name'])->orderBy('name')->get();
         return view('admin.transactions.edit', compact('transaction', 'surveys', 'users'));
     }
 
