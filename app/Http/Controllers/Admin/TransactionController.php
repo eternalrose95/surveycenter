@@ -43,6 +43,7 @@ class TransactionController extends Controller
             ]),
             'survey_id' => 'nullable|exists:surveys,id',
             'survey_title' => 'nullable|string|max:255',
+            'question_count' => 'nullable|integer|min:0',
         ]);
 
         // Jika survey_id tidak dikirim, buat survey baru
@@ -50,6 +51,7 @@ class TransactionController extends Controller
             $survey = \App\Models\Survey::create([
                 'user_id' => $request->user_id,
                 'title' => $request->survey_title ?? 'Survey baru',
+                'question_count' => $request->question_count ?? 0,
             ]);
             $survey_id = $survey->id;
         } else {
@@ -66,7 +68,7 @@ class TransactionController extends Controller
             'payment_method' => $request->payment_method,
         ]);
 
-        return redirect()->route('admin.transaction.index')
+        return redirect()->route('admin.transactions.index')
             ->with('success', 'Transaction berhasil dibuat!');
     }
 
